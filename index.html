@@ -60,12 +60,23 @@
         display: inline;
         
     }
-    #menu{
+    #menubtn{
         width: 3.6%;
-        background-color: rgba(0, 0, 0, 0.286);
+        /* background-color: rgba(0, 0, 0, 0.286); */
         height: 65%;
         float: left;
-        position: absolute;
+        position: absolute;   
+        /* display: none;      */
+    }
+    #menu{
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        margin-left: -100%;
+        z-index: 10;
+        background-color: rgb(217, 219, 207);
+        transition: 0.5s;  
+        
     }
     .header{
         font-size: 1.2vw;
@@ -76,7 +87,7 @@
     .caft{
         width: 100%;
         object-fit: cover;        
-        transition: 0.7s;
+        transition: 0.55s;
         display: block;
     }
     body{
@@ -128,21 +139,31 @@
     }
     .men{
         width: 100%;
-        height: 0.4vw;
-        margin-top: 0.9vw;
+        height: 0.2vw;
+        margin-top: 1.1vw;
         margin-left: 0.9vw;
         background-color: white;
+        box-shadow: 0.1vw 0.1vw 0.2vw black;
+    }
+    #shop{
+        position: absolute; left: 44vw; margin-top: 55vh; border-radius: 0.5vw; padding: 0.5vw; background-color: rgba(90, 90, 90, 0.518); font-size: 3vw; width: 10%;
+    }
+    #footimg{
+        display: none;
     }
     #input1{
-        font-size: 3vw;
+        font-size: 2.5vw;
         
+    }
+    label:hover{
+        cursor: pointer;
     }
     .navlabel:hover{
         cursor: pointer;
     }
-    img:hover{
+    /* img:hover{
         cursor: pointer;
-    }
+    } */
     .list:hover{
         text-decoration: underline;
         cursor: pointer;
@@ -151,6 +172,11 @@
         text-decoration: underline;
         cursor: pointer;
     }
+    #menubtn:hover{
+        cursor: pointer;
+    }
+    
+   
     @media screen and (max-width:500px) {
         #logo{
             width: 10%;
@@ -175,8 +201,8 @@
             
 
         }
-        .foot2{
-            width: 50%;
+        #mail{
+            display: none;
         }
         .header{
             font-size: 10vw;
@@ -185,10 +211,10 @@
             color:rgb(53, 53, 50);
         }
         .list{
-            font-size: 5vw;
+            font-size: 6vw;
         }
         .list2{
-            font-size: 5vw;
+            font-size: 6vw;
             text-align: right;
             margin-right: 3vw;
         }
@@ -196,9 +222,10 @@
             text-align: right;
             margin-right: 3vw;
         }
-        #menu{
+        #menubtn{
             width: 10%;
             height: 170%;
+            display: block;     
         }
         .men{
             height: 0.9vw;
@@ -211,6 +238,21 @@
             margin-top: 1vw;        
             
         }
+        #footimg{
+            display: block;
+            width: 100%;
+            object-fit: cover;      
+        }
+        #mail{
+            display: none;
+        }
+        #fmain{
+            display: none;
+        }
+        #shop{
+            font-size: 8vw;
+            left: 25vw; border-radius: 1vw; padding: 1vw;
+        }
     }
 
 </style>
@@ -218,9 +260,45 @@
 <body>
 
     <!-- <div style="position: fixed; height: 25vw; background-color: white; width: 0.4%; margin-left: 49.8%; z-index: 5;"></div> -->
+    <iframe id="iframe1" src="products.html" style="width: 100%; position: fixed; top: 0px; z-index: 11; background-color: transparent; left: 100%; transition: 0.5s;" frameborder="0"></iframe>
+    <div id="menu">
+        <div style="width: 100%;">
+            <label id="closex" style="float: right; font-size: 10vw; margin-right: 3vw; margin-top: 2vw;">X</label>        
+        </div>
+        
+        <div style="margin-left: 2vw;">
+            <div class="foot2">
+                <p class="header">Ürünler</p>
+                <p class="list">Tasarım Tişört</p>
+                <p class="list">Basic Tişört</p>
+                <p class="list">Atlet</p>
+                <p class="list">Şort</p>
+                <p class="list">Pantolon</p>
+                <p class="list">Çanta</p>
+                <p class="list">Ceket</p>
+                <p class="list">Tasarım Sweatshirt</p>                
+                <p class="list">Şapka</p>                
+                <p class="list">Çorap</p>
+            </div>
+            <input placeholder="e-mail" style="font-size: 6vw; margin-top: 3vw; padding: 1vw; border-radius: 0.8vw;" type="text">
+            <div class="foot2">
+                <p class="header header2">Bilgi</p>
+                <p class="list list2">Sipariş Takibi</p>
+                <p class="list list2">İade ve Değişim</p>
+                <p class="list list2">Sipariş ve Ödeme</p>
+                <p class="list list2">Satış Noktaları</p>
+                <p class="list list2">Ekibe Katıl</p>
+                <p class="list list2">Yardım</p>
+                <p class="list list2">KVK ve Gizlilik Politikası</p>
+                <p class="list list2">Çerez Ayarları</p>
+                <p class="list list2">İletişim</p>
+            </div>
+        </div>        
+        
 
+    </div>
     <div id="navbar">
-        <div id="menu">
+        <div id="menubtn">
             <div class="men"></div>
             <div class="men"></div>
             <div class="men"></div>
@@ -240,15 +318,27 @@
         
         
     </div>
-    <div id="main" style="position: fixed; height: auto; width: 100%; transition: 0.7s; z-index: 2;">
-        <img id="k1" class="caft" src="Pics/k1.jpg" alt="">
-        <img class="caft" src="Pics/k2.jpg" alt="">
-        <img class="caft" src="Pics/k3.jpg" alt="">
-        <img class="caft" src="Pics/k4.jpg" alt="">
-        <img class="caft" src="Pics/k5.jpg" alt=""> 
+    <div id="main" style="position: fixed; height: auto; width: 100%; transition: 0.5s; z-index: 2;">
+        <div>
+           <label id="shop"><img style="width: 100%; display: none;" src="Pics/cart.png" alt=""></label>
+            <img id="k1" class="caft" src="Pics/k1.jpg" alt="">            
+        </div>        
+        <div>
+            <img id="k2" class="caft" src="Pics/k2.jpg" alt="">
+        </div>
+        <div>
+            <img id="k3" class="caft" src="Pics/k3.jpg" alt="">
+        </div>
+        <div>
+            <img id="k4" class="caft" src="Pics/k4.jpg" alt="">
+        </div>
+        <div>
+            <img id="k5" class="caft" src="Pics/k5.jpg" alt="">
+        </div>
         <footer id="footer">
+            <img id="footimg" class="caft" src="Pics/k6.jpg" alt=""> 
             <div id="fmain">
-                <div class="foot2">
+                <div class="foot">
                     <p class="header">Ürünler</p>
                     <p class="list">Tasarım Tişört</p>
                     <p class="list">Basic Tişört</p>
@@ -288,7 +378,7 @@
                     <p class="list">Tema x Daryl</p>
                     <p class="list">Yeni Ürünnler</p>
                 </div>
-                <div class="foot2">
+                <div class="foot">
                     <p class="header header2">Bilgi</p>
                     <p class="list list2">Sipariş Takibi</p>
                     <p class="list list2">İade ve Değişim</p>
@@ -314,7 +404,7 @@
                 </div>                
             </div>
             <div id="mail">
-                <input placeholder="e-mail" id="input1" type="text">
+                <input style="padding: 0.6vw ; border-radius: 1vw; " placeholder="e-mail" id="input1" type="text">
             </div>
         </footer>  
     </div>
@@ -353,145 +443,8 @@
 </body>
 
 
-<script>
-    var main = document.getElementById("main");
-    var logo = document.getElementById("logo");
-    var footer = document.getElementById("footer");
-    var elements = document.querySelectorAll(".caft");
-    footer.style.height = window.innerHeight+"px";
-    main.style.top = "0px";
-    var len = window.innerHeight;
+<script src="script12.js">
     
-    // PC part start
-    // Setting size of pictures
-
-    for(var i=0;i<elements.length;i++){
-        elements[i].style.height = len+"px"
-    }
-    
-    var counter = 0;
-    var test = true;
-    window.onresize = function(){
-        footer.style.height = window.innerHeight+"px";
-    }
-    footer.onscroll = function(e){
-        console.log(e.target.scrollTop);
-        
-    }
-
-
-    window.addEventListener("wheel", event => {
-        const delta = Math.sign(event.deltaY);
-        //console.info(delta);
-        if(test == true){
-            test = false;
-            if(event.deltaY>0){
-                
-                if(counter<5){
-                    console.log("aşağı");
-                    counter++;
-                    main.style.marginTop = "-"+counter*len+"px";
-
-                    
-                }
-                
-            }
-            else{
-                if(counter>0){
-                    console.log("yukarı");
-                    counter--;    
-                    main.style.marginTop = "-"+counter*len+"px";
-                    //alert();
-                                      
-                }
-                   
-                
-                
-                
-            }
-            aa = setTimeout(function(){
-                test = true;
-              
-                // alert();
-            }, 700);
-            
-        }
-    });
-
-    //PC part end
-
-    //Phone part start
-    var counter2 = 0;
-    var test2 = true;
-    var test3 = false;
-    var locationY;
-    var locationY2;
-    
-    var locationY3;
-    var x = "0px";  
-    var up = false;
-  //  console.log(x);
-    document.ontouchstart = function(e){
-        up = false;
-        test3 = true;
-      //  main.style.transition = "0s";
-        var touch = e.touches[0] || e.changedTouches[0];
-       
-        y = touch.pageY;        
-        locationY = touch.pageY;        
-        x = main.style.top;
-        if(x ==""){
-            x = "0px"
-        }  
-        x = x.substring(0,x.length-2)
-        x = parseInt(x);
-        console.log(x)
-    }
-    document.ontouchmove = function(e){
-       // console.log(locationY2);
-       var touch = e.touches[0] || e.changedTouches[0];
-        if(test2){
-            if(test3){
-                
-                test2 = false;              
-                locationY2 = touch.pageY;
-                console.log("1:"+locationY+"2:"+locationY2);
-                if(locationY>locationY2+5){
-                    //yukarı kaydırmak ve sayfayı aşağı indirmek
-                    if(counter2<5){
-                    
-                        counter2++;
-                        main.style.top = "-"+counter2*len+"px";
-
-                        
-                    }
-                    test3 = false;
-//                    console.log("yukarı");
-                }
-                else if(locationY2>locationY+5){
-                    //aşağı kaydırmak ve sayfayı yukarı çıkarmak
-                    if(counter2>0){
-                    
-                        counter2--;    
-                        main.style.top = "-"+counter2*len+"px";;
-                                        
-                    }
-                    test3 = false;
-//                    console.log("aşağı");
-                }
-                ab = setTimeout(function(){
-                    test2 = true;
-                
-                    // alert();
-                }, 700);
-                }
-            
-        }
-    }
-    document.ontouchend = function(e){
-        test3 = true;       
-    }
-
 </script>
 
 
