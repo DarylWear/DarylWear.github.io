@@ -85,7 +85,7 @@ var elements = document.querySelectorAll(".caft");
                 test = true;
               
                 // alert();
-            }, 300);
+            }, 200);
             
         }
     });
@@ -155,7 +155,7 @@ var elements = document.querySelectorAll(".caft");
                     test2 = true;
                 
                     // alert();
-                }, 300);
+                }, 200);
                 }
             
         }
